@@ -6,10 +6,11 @@ import java.util.concurrent.Executors;
 
 import com.lmax.disruptor.dsl.Disruptor;
 
-public class Application {
+public class CartService {
   public static void main(String[] args) {
     ExecutorService executor = Executors.newCachedThreadPool();
     Disruptor<ByteBuffer> disruptor =
-        new Disruptor<ByteBuffer>(new ByteBufferFactory(4 * 1024, true), 1024 * 1024, executor);
+        new Disruptor<ByteBuffer>(new ByteBufferFactory(4096, true), 1024, executor);
   }
+
 }
